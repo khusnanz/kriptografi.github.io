@@ -1,3 +1,4 @@
+<!-- scrip proses enkripsi mengubah plaintext menjadi chipertext-->
 <?php
 function char_to_dec($a){
 	$i=ord($a);
@@ -10,6 +11,7 @@ function char_to_dec($a){
 	}
 }
 
+// scrip proses deskripsi  mengubah chiper text menjadi plaintext //
 function dec_to_char($a){
 	if ($a>=1 && $a<=26){
 		return (chr($a+96));

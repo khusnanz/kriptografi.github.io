@@ -5,7 +5,7 @@
 	<title>Cryptography</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
+<!--================================================link css===============================================-->
 	<link rel="icon" type="image/png" href="images/icons/logo.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -29,7 +29,7 @@
 </head>
 <body>
 
-
+<!-- ada textfield dan button-->
 	<div class="container-contact100">
 		<div class="wrap-contact100">
 			<form class="contact100-form validate-form" method="post">
@@ -38,13 +38,13 @@
 				</span>
 
 				<div class="wrap-input100 validate-input" data-validate="Name is required">
-					<span class="label-input100">Plain Text</span>
-					<textarea class="input100" name="plantext_caesar" placeholder="Your plain text here..."></textarea>
+					<span class="label-input100">Text</span>
+					<textarea class="input100" name="plantext_caesar" ></textarea>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate="Name is required">
-					<span class="label-input100">Your Key</span>
+					<span class="label-input100">Kunci</span>
 					<input class="input100" type="text" name="key_caesar" placeholder="Enter your key">
 					<span class="focus-input100"></span>
 				</div>
@@ -64,7 +64,7 @@
 			<form method="post">
 				<?php
 	//----------------------------------------------------------------//
-	// caesar														  //
+	// caesar	 skrip enkripsi yg menggunakan fungsi di convert.php													  //
 	//----------------------------------------------------------------//
 		if((isset($_POST['key_caesar'])) && (isset($_POST['plantext_caesar'])) && isset($_POST['encrypt_caesar'])){
 			$key=$_POST['key_caesar'];
@@ -83,8 +83,12 @@
 				}
 				$i++;
 			}
+
+	//----------------------------------------------------------------//
+	//krip untuk menampilkan hasil enkrip ke textfield hasil													  //
+	//----------------------------------------------------------------//
 			echo '<div class="wrap-input100 validate-input">';
-			echo '<span class="label-input100">Chiper Text';
+			echo '<span class="label-input100">ChiperText';
 			echo '<textarea class="input100" name="result" id="result" placeholder="Your chiper text here..." onclick="SelectAll(\'result\')">';
 			foreach($split_nmbr as $nmbr){
 				if (($nmbr+$key)>52){
@@ -104,6 +108,9 @@
 			echo '</textarea>';
 			echo '</span>';
 			echo '</div>';
+//----------------------------------------------------------------//
+// caesar	 skrip deskripsi  yg menggunakan fungsi di convert.php													  //
+//----------------------------------------------------------------//			
 		} else if ((isset($_POST['key_caesar'])) && (isset($_POST['plantext_caesar'])) && isset($_POST['decrypt_caesar'])){
 			$key=$_POST['key_caesar'];
 			$plantext=$_POST['plantext_caesar'];
@@ -120,8 +127,12 @@
 				}
 				$i++;
 			}
+
+	//----------------------------------------------------------------//
+	//krip untuk menampilkan hasil deskrip ke textfield hasil													  //
+	//----------------------------------------------------------------//
 			echo '<div class="wrap-input100 validate-input">';
-			echo '<span class="label-input100">Chiper Text';
+			echo '<span class="label-input100">Plaintext';
 			echo '<textarea class="input100" name="result" id="result" placeholder="Your chiper text here..." onclick="SelectAll(\'result\')">';
 			foreach($split_nmbr as $nmbr){
 				if (($nmbr-$key)<1){
